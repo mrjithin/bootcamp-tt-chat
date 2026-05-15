@@ -26,12 +26,15 @@ Before you scroll down to the questions, try this:
 3. **Reflect on how it went.** Honestly:
    - Did your self-directed learning actually prepare you for the questions, or
      did you over-study things that never came up?
+     - My self learning prepared me for most of the questions but I missed out on going through all possible categories of a tool and instead focussed on only the ones I felt were important. I overstudied few things like regarding socket addresses, how sockets work under the hood and other such things which didn't come up. 
    - Which questions blindsided you? Why — was the topic missing from your
      plan, or did you skim past it?
+     - Questions like the ones asking for authoritative sources and the different build types in g++ blindsided me since I hadn't considered them and instead went with the natural flow of learning. I only took up easy to start tutorials and hence didn't search for authoritative sources. I also used my pre existing knowledge about debug and release versions and hence didn't actually learn the different types of it. 
    - Map your experience onto the *known knowns / known unknowns / unknown
      unknowns* idea. The interesting category is usually the last one: things
      you didn't even realise you should have learned. What were yours, and how
      could a better learning plan have surfaced them earlier?
+      - The unknown unknowns were things that I didn't feel the need to do intially or the ones I felt my pre existing knowledge was enough. I didn't properly structure the learning to know about the right resources and also skipped through parts I felt I knew. Instead if I had started in a more organised way and not skipping parts, I could have learnt them better. 
 
 The point of this exercise isn't to get the questions "right" — it's to notice
 the gap between how you *think* you learn and how you actually do, so you can
@@ -168,11 +171,17 @@ close it.
 
 - What is the most authoritative source of information about `socket()`
   from `<sys/socket.h>`?
+  - I didn't look into it before but afterwards found it is the POSIX standard.
 - What is the most authoritative source of information about the TCP and IP
   protocols?
+  - I didn't look into it before but afterwards found it to be RFC by IETF. 
 - What is the most authoritative source of information about the C++
   programming language?
+  - cppreference.com
 - What information can you find about using Markdown when structuring prompts 
   to LLMs?
+  - For larger prompts, Markdown structures the prompts to clear sections with less ambiguity resulting in better responses. 
 - What is the difference between LLM and AI?
+  - AI is a broader term that covers techniques used by machines to do tasks that require human-like intelligence. LLMs are a specific category in AI which is trained on large amounts of text and is capable of human-like conversations via text. 
 - Is it grammatically correct in English to say "a LLM" or "an LLM"? Why?
+  - It is grammatically correct to say an LLM since the 'an' rule says that it is used before a vowel sound and since LLM starts with a vowel sound (due to being an abbreviation), we use 'an'. 
