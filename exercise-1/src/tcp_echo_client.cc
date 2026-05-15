@@ -14,11 +14,13 @@ int main(int argc, char *argv[]) {
   if(argc>1){
     message = argv[1];
   }
-  const int kPort = 8080;
-  const std::string kServerAddress = "127.0.0.1";
+  const int kPort = 8080;  // The type of lhs is int and so is the rhs
+  const std::string kServerAddress = "127.0.0.1"; // The type of lhs is std::string but rhs is
+  // a C-style string. 
   sockaddr_in address;
-  const int kBufferSize = 1024;
-  char buffer[kBufferSize] = {0};
+  const int kBufferSize = 1024; // type of lhs is int and so is rhs
+  char buffer[kBufferSize] = {0}; // type of lhs is char array 
+  // but the rhs is a array of 1024 0s which is an int array. 
   // Creating socket file descriptor
   int my_sock = socket(AF_INET, SOCK_STREAM, 0);
   if (my_sock < 0) {
