@@ -153,7 +153,7 @@ close it.
 - What is the difference between `std::string` and a C-style string?
   - std::string is provided by STL and automatically manages its memory whereas C-style string is a null terminated string with manual memory management. 
 - What type is a C-style string?
- - It is a pointer to a char array. 
+  - It is a pointer to a char array. 
 - What happens when you iterate a pointer?
   - When iterating on a pointer, each increment points to current address + sizeof(type) bytes so it points to the element stored in the next position assuming it is of the same type. 
 - What are the most important safety tips to know when using pointers?
@@ -162,6 +162,7 @@ close it.
 ## Learn Basics of Creating a C++ Project in Your IDE
 
 - How do you compile and run your project in your IDE?
+  - I use VSCode in which the extensions automatically manage the tasks.json and settings.json. I also Makefiles for medium-large projects. 
 
 ## Improving Interactions with LLMs
 
