@@ -119,12 +119,22 @@ close it.
   `"hello message from the command prompt"` to the server
 - Commit your changes into git
 - What do all these headers do?
+  - `<arpa/inet.h>` is used for working with ip addresses. 
+  - `<iostream>` is used for standard i/o in C++.
+  - `<netinet/in.h>` I didn't properly look into it. But afterwards, looking into it, it provides structs for addresses.
+  - `<string>` is used for string manipulation
+  -  `<sys/socket.h>` is used for socket programming, it provides standard function to connect, send and recieve messages via sockets. 
+  - `<sys/types.h>` is used along with socket.h and is used to provide the required types. 
+  - `<unistd.h>` is used for system calls in C++. 
 - How do you find out which part of the below code comes from which header?
-- How do you change the code so that you are sending messages to servers
-  other than localhost?
+  - We can go through the official docs of the headers to find out which all parts come under it. 
+- How do you change the code so that you are sending messages to servers other than localhost?
+  - We can change the variable `kServerAddress` to point to any external server. 
 - How do you change the code to send to a IPv6 address instead of IPv4?
+  - We need to change the AF_INET to AF_INET6, sockaddr_in to sockaddr_in6. 
 - **Bonus**: How do you change the client code to connect by hostname instead
   of IP address?
+  - getaddrinfo() will fill the rest if we give partial information and can be used here. 
   
 ## Introduction to Memory Management
 
