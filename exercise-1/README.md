@@ -140,15 +140,24 @@ close it.
 
 - What is happening in line 26 of `tcp-echo-client.cc`? 
   `if (inet_pton(AF_INET, kServerAddress.c_str(), &address.sin_addr) <= 0) {`
+  -  It converts the server address from string to Network Byte order. AF_INET shows IPv4 and for successful conversion, positive value is returned. 
 - What is happening in line 31 of `tcp-echo-client.cc`?
   `if (connect(my_sock, (sockaddr *)&address, sizeof(address)) < 0) {`
+  - It connects the client to the server. The socket to connect is specified as well as the server address. Successful connection returns 0.
 - What is the difference between a pointer and a reference?
+  - A pointer is a variable that stores an address of another object. A reference is just an alias for a another variable. 
 - When is it better to use a pointer?
+  - It is better to use pointer when we need to make it point to other addresses and also when we want to do pointer arithmetic. 
 - When is it better to use a reference?
+  - A reference is used when we want to pass by reference to a function instead of making a copy. It is also used when we want to modify the original object instead of a copy. 
 - What is the difference between `std::string` and a C-style string?
+  - std::string is provided by STL and automatically manages its memory whereas C-style string is a null terminated string with manual memory management. 
 - What type is a C-style string?
+ - It is a pointer to a char array. 
 - What happens when you iterate a pointer?
+  - When iterating on a pointer, each increment points to current address + sizeof(type) bytes so it points to the element stored in the next position assuming it is of the same type. 
 - What are the most important safety tips to know when using pointers?
+  - When using pointers, we should free the memory when not in use to avoid memory leak. We also need to be careful to not dereference invalid pointers since that is UB. 
 
 ## Learn Basics of Creating a C++ Project in Your IDE
 
