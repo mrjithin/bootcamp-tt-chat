@@ -62,15 +62,22 @@
 ## Refactoring: Extract Function
 
 - What is different in this code compared to exercise-1?
+  - The code is modular and each function does a specific part of the process instead of having a single huge block of code that does everything. 
 - Is this code better or worse than exercise-1?
+  - The code is certainly better than exercise-1 since it's more readable, organised easier to debug and test as well as maintainable. 
 - What are the tradeoffs compared to exercise-1?
+  - The code has become more verbose and longer. There may also be some overhead when calling functions. But these are minor and doesn't make any noticeable changes. 
 - Are you able to spot any mistakes or inconsistencies in the changes?
+  - In the receiving buffer, in exercise 1, same buffer is overwritten for each client which results in left over data in the buffer whereas in exercise 2, we zero-initialise the buffer for every client that connects. 
   
 ## Thinking About Performance
 
 - Does writing code this way have any impact on performance?
+  - When we write the code with lots of functions, there is some overhead when calling these functions. We also zero initialize the buffer for every client. These things affect the performance of code in exercise-2. 
 - What do we mean when we say performance?
+  - Performance considers the time to execute as well as the memory used. These are the most important aspects of performance. 
 - How do we measure performance in a program?
+  - We can find execution times using chrono library. We can also do profiling using tools like Valgrind. 
 
 ## Play with Git
 
