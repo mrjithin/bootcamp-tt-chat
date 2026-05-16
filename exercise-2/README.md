@@ -82,9 +82,15 @@
 ## Learn Basics of Debugging in Your IDE
 
 - How do you enable debug mode in your IDE?
+  - To start debug mode, first we compile with the -g flag. 
+  - Then in VSCode, press the Run and Debug icon. 
+  - The code starts to run in debug mode.
 - In debug mode, how do you add a watch?
+  - To watch any expression, we expand the WATCH section on the left and add any expression we want. 
 - In debug mode, how do you add a breakpoint?
+  - To set a breakpoint, we can click to the left of the line number at which we want to add a breakpoint. 
 - In debug mode, how do you step through code?
+  - We can step over using F10, step into using F11 and step out using Shift+F11 once we reach a breakpoint. 
 
 ### Memory Management and Debug Mode in Your IDE
 
