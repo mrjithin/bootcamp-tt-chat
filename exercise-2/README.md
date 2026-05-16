@@ -12,6 +12,9 @@
   overview and protocol families
 - Or type `man 7 socket` in terminal
 - When would you want to use a `SOCK_RAW` stream?
+  - We use raw sockets when we want to directly interact with the network layer. 
+  - We may use it for custom protocol development. 
+  - It also is used for packet sniffing in which it is used to read all incoming packets.
 
 ### TCP and IP Protocols
 - [IPv4](https://www.rfc-editor.org/info/rfc791) - Internet Protocol 
@@ -24,17 +27,26 @@
 ### C++
 - [C++23 ISO standard draft](https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2023/n4950.pdf) - 
   Working draft of the C++ language specification
-- Is the above the official C++23 spec? 
+- Is the above the official C++23 spec?
+  - No it is just a working draft that reflects the changes made before final publication. 
 - Where is the official C++23 spec?
+  - www.iso.org/standard/83626.html
 - Why was this link chosen instead?
+  - The official ISO spec is not free and must be purchased. The working draft is technically identical to the final spec. 
 - Is this a helpful reference for learning C++?
+  - It is a highly technical document that is used by compiler developers and hence is not appropriate from a learning point of view. 
 - Can the various implementations of C++ compilers be different from the
   C++ standard?
+  - The various implementation may introduce many compiler specific extensions to the language. The spec also defines some parts as implementation defined. Due to these the various implementations are different from each other. 
 - What are the most widely used and most significant C++ compilers?
+  - GCC, Clang, MSVC
 - Where is the equivalent spec for C++26?
+  - C++26 is currently under development and released the final spec. The working draft is found here: https://github.com/cplusplus/draft
 
 - Where do you find the spec for the HTTP protocol?
+  - It is published by IETF as Request for Comments (RFC). 
 - What about HTTPS? Is there a spec for that protocol?
+  - Since it is just HTTP with an encrypted TLS connection, it doesn't have a separate spec. 
 
 ## Introduction to C++ and Sockets Programming
 
