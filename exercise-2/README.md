@@ -95,4 +95,6 @@
 ### Memory Management and Debug Mode in Your IDE
 
 - How do you see the memory layout of a `std::string` from your IDE debug mode?
+  - To examine the memory layout, we can use the gdb cli and type `-exec x/32xb &stringName` to examine 32 bytes starting from the address of the string. 
 - How do you see the memory layout of a struct from your IDE debug mode?
+  - To examine the memory layout, we can use the gdb cli and type `-exec x/32xb &structName` to examine 32 bytes starting from the address of the struct. 
