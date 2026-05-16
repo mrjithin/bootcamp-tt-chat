@@ -52,7 +52,12 @@
 
 - Read the code in `src/`
 - Are there any bugs in this code? 
+  - In the client as well as the server code, the receiving buffer has a size of 1024 and the read system call also reads 1024 bytes. In case the response recieved has >=1024 bytes, the buffer will be entirely filled without space for the null terminator (`\0`). To avoid this we should use kBufferSize-1.
+  - We also need to zero initialize the sin_zero property in sockaddr_in. Otherwise it may cause unexpected issues. 
 - What can you do to identify if there are bugs in the code?
+  - We can use compiler warning flags like -Wall, -Wextra.
+  - We can use debuggers like gdb. 
+  - We can also write tests and do unit testing and other kinds of testing. 
 
 ## Refactoring: Extract Function
 
