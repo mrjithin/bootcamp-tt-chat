@@ -66,7 +66,7 @@
 
 - After your experiments with Compiler Explorer, do you have any updates for
   your answers in exercise-2?
-
+  - Other than function call overhead, there's also overhead of making copy of parameters when we make our code more modular. 
 ### Bonus: Do Not Watch Now 
 
 - [More about Compiler Explorer](https://www.youtube.com/watch?v=bSkpMdDe4g4) - 
@@ -80,14 +80,39 @@
     what the assembly looks like
   - What happens if you iterate the pointer to outside the bounds of your
     array?
+    - If we iterate outside bounds, it is UB. It may segfault or read garbage values.
   - Let's say your struct is called `Foo`
   - What is the difference between `std::vector<Foo>` and `std::vector<Foo*>`?
+    - The first one stores an array of Foo structs with each element occupying sizeof(Foo). In second case we make an array of pointers with each element storing a pointer (size is 8 byte usually in 64bit machines).
   - What are the tradeoffs between using `std::vector<Foo>` vs 
     `std::vector<Foo*>`? 
+    - `std::vector<Foo>` is better for cache locality due to contiguous storage of structs. There is also no need for separate storage of pointers. 
+    - `std::vector<Foo*>` is better for large structs since if we want to move the objects it is easier since only pointers need to be moved. 
   - Give an example where `std::vector<Foo>` is a better choice than 
     `std::vector<Foo*>`
+    - For a small struct like
+    ```cpp
+    struct Point{
+      int x;
+      int y;
+    }
+    ```
+    `std::vector<Point>` is better since they structs are relatively small and the pointer overhead + cache locality issues are significantly more. 
   - Give another example where the opposite is true
+    - Suppose there exists a struct:
+    ```cpp
+    struct User{
+      int id;
+      std::string name;
+      std::string role;
+    }
+    ```
+    since we need to assign different users to different locations, it is easier to pass the pointer instead of passing a copy. 
   - Can you create `std::vector<Foo&>`? 
+    - No this is not allowed since a std::vector requires the element inside to be assignable. Since a reference cannot be reassigned, this is compilation error. 
   - Can you create `std::vector<std::optional<Foo>>`?
+    - Yes this is valid. 
   - What happens if your struct contains another struct?
+    - The outer struct uses the inner struct's alignment requirement which in turn corresponds to its own largest datatype's size, along with other members of the outer struct. 
   - What is the difference between a struct and a class?
+    - In a struct, members are public by default whereas in a class they are private by default. 
