@@ -8,7 +8,9 @@
 - A new function `check_error()` has been created and `create_socket()` from 
   exercise-2 has been refactored to make use of it
 - What are the benefits of writing code in this way?
+  - It eliminates repetition. It also useful if instead of logging the error, we need to perform some other action. Then in such a case we only need to modify the `check_error()` function. 
 - Are there any costs to writing code like this?
+  - There is a function call overhead associated with this. We also pass the error message by value which is unnecessary and can be changed to be a const reference. 
 - Apply `check_error` to all the code in `src/`
 
 ## Introduction to Compiler Explorer

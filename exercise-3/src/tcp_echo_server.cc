@@ -6,21 +6,24 @@
 
 const int kBufferSize = 1024;
 
-int create_socket() {
-  int my_sock;
-  if ((my_sock = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
-    std::cerr << "Socket creation error\n";
+void check_error(bool test, std::string error_message) {
+  if (test) {
+    std::cerr << error_message << "\n";
     exit(EXIT_FAILURE);
   }
+}
+
+int create_socket() {
+  int my_sock;
+  check_error((my_sock = socket(AF_INET, SOCK_STREAM, 0)) < 0,"Socket creation error");
   return my_sock;
 }
 
 bool set_socket_options(int sock, int opt) {
   if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR | SO_REUSEPORT, &opt,
                  sizeof(opt)) < 0) {
-    std::cerr << "setsockopt() error\n";
     close(sock);
-    exit(EXIT_FAILURE);
+    check_error(true,"setsockopt() error");
   }
   return true;
 }
@@ -35,17 +38,15 @@ sockaddr_in create_address(int port) {
 
 void bind_address_to_socket(int sock, sockaddr_in &address) {
   if (bind(sock, (sockaddr *)&address, sizeof(address)) < 0) {
-    std::cerr << "bind failed\n";
     close(sock);
-    exit(EXIT_FAILURE);
+    check_error(true,"bind failed");
   }
 }
 
 void listen_on_socket(int sock) {
   if (listen(sock, 3) < 0) {
-    std::cerr << "listen failed\n";
     close(sock);
-    exit(EXIT_FAILURE);
+    check_error(true,"listen failed");
   }
 }
 
@@ -78,6 +79,8 @@ void handle_connections(int sock, int port) {
   socklen_t address_size = sizeof(address);
 
   // #Task - is it good to have an infinite loop?
+  // While a loop is unavoidable, we could add a condition to exit like having served
+  // a given no of requests. 
   while (true) {
     int accepted_socket = accept(sock, (sockaddr *)&address, &address_size);
     if (accepted_socket < 0) {
@@ -95,6 +98,8 @@ int main() {
   sockaddr_in address = create_address(kPort);
 
   // #Task - is there a better name for this function?
+  // Since the function does all the setup for the socket, we could name it better
+  // as setup_socket.
   start_listening_on_socket(my_socket, address);
   std::cout << "Server listening on port " << kPort << "\n";
   handle_connections(my_socket, kPort);
