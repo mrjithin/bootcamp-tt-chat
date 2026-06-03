@@ -19,13 +19,18 @@
   `create_socket()` in [Compiler Explorer](https://godbolt.org) - Interactive 
   tool for exploring how C++ code compiles to assembly
 - What is happening here?
+  - For the new `check_error()`, the compiler makes two different versions of this function for each case. There are also more number of instructions in the second case due to more no of instructions. 
 - Can you think of any different approaches to this problem?
+  - We can pass `inline` keyword to hint the compiler to inline the `check_error()` function. We can also make the parameter a `std::string_view` so as to eliminate the allocation overhead for the error message in case of no error. 
 - How can you modify your Makefile to generate assembly code instead of
   compiled code?
+  - We can pass the `-S` flag for it to output assembly code. 
 - **Note**: You can save the generated assembly from Compiler Explorer
 - **Bonus**: Can you view assembly code using your IDE?
+  - In VS Code debug mode, we can use the Open Disassembly View to open assembly code.
 - **Bonus**: How do you see the assembly when you step through each line in
   debugging mode from your IDE?
+  - When paused on a breakpoint, VS Code disassembly view highlights the current instruction. 
 - [x86 assembly reference](http://ref.x86asm.net/) - Comprehensive reference 
   for x86 assembly language instructions and syntax
 
