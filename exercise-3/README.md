@@ -39,18 +39,28 @@
 - Make sure you have `-fsanitize=address` in both your `CXX_FLAGS` and 
   `LD_FLAGS` in your Makefile
 - What do `-fsanitize=address`, `CXX_FLAGS` and `LD_FLAGS` mean?
+  - `-fsanitize=address` enables ASan which helps catch memory bugs like memory leaks at runtime. 
+  - `CXX_FLAGS` is a standard variable to pass compilation flags. 
+  - `LD_FLAGS` is a standard variable to pass linker flags. 
 - With the new tool of the Compiler Explorer, and keeping in mind what you 
   have learned about how to use debug mode
 - What happens when you look at a `std::string` using the above methods?
+  - If a `std::string` has less no of characters, then due to SSO optimisation, the string is directly allocated on the stack whereas larger strings are allocated on the heap. This is visible from the call to `"operator new(unsigned long)"` in the assembly code. 
 - Where is the text in your `std::string`?
+  - If a `std::string` has less no of characters, then due to SSO optimisation, the string is directly allocated on the stack whereas larger strings are allocated on the heap. This is visible from the call to `"operator new(unsigned long)"` in the assembly code. 
 - What is `std::optional`?
+  - It is a class in C++ that is used to represent a scenario when it may or may not contain a value. 
 - How do you find out the memory layout of a `std::optional`?
+  - We can find the memory layout by either reading cppreference or by printing the sizeof so as to get the alignment. 
 - Read https://en.cppreference.com/w/cpp/memory#Smart_pointers - Guide to 
   modern C++ memory management using smart pointers
 - Which pointer types are the most important to know about?
+  - The most important ones are `std::unique_ptr`, `std::shared_ptr` and `std::weak_ptr`. 
 - Which smart pointer should you use by default if you can?
+  - The default choice should be unique_ptr as it has unique ownership and no overhead of reference counting. 
 - Does changing your optimization level in `CXXFLAGS` from `-O0` to `-O3` have
   any impact on the answers to any of the above questions?
+  - When increasing the optimisation level, the compiler optimises away some of the variables and inlines functions. But the basic allocations of string and other data structures remain the same. 
 
 ## More Thinking About Performance
 
