@@ -27,11 +27,12 @@
   - Library is a collection of compiled object files that are not standalone and needs to be linked with other programs to run. An executable is a standalone binary with a `main()` entry point. 
 - How do you compile a library, and then use that library to compile an
   executable?
-  - ```bash
-  g++ -c setup.cpp -o setup.o
-  ar rcs libsetup.a setup.o
-  g++ tcp_echo_server.cpp -L. -lsetup -o server
-  ```
+  - 
+    ```bash
+    g++ -c setup.cpp -o setup.o
+    ar rcs libsetup.a setup.o
+    g++ tcp_echo_server.cpp -L. -lsetup -o server
+    ```
   We compile to object file and then archive it to a static library and then link it to the executable. 
 
 ### Reminder 
