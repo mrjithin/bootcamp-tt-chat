@@ -12,12 +12,20 @@
 
 - Here is one way to separate out the code into multiple files
 - Is this the best way to do it? 
+  - It is not the best way to do it. The functions are passing the state to other functions which handle it, which is not ideal. 
 - What are the advantages and disadvantages?
+  - Some advantages are the codebase is more modular with the namespaces making each function's utility clear. 
+  - Some disadvantages are the lack of a class structure that can manage on its own instead of depending on other functions outputting its current state. 
+  - There is also no RAII in the current codebase. 
 
 ## Introduction to Namespace
 
 - There are different ways namespace is being used in this exercise
+  - `namespace ttc = tt::chat;`
+  - `tt::chat::check_error()`
+  - `using namespace tt::chat;`
 - Which way is better? What are the advantages and disadvantages?
+  - Using either method 1 or method 2 is fine since we make it clear by explicit qualification or aliases. It is advantageous since it makes it clear the origin of the function. It is disadvantageous in the sense that we have to write more code to call a function. But when using the `using` statement, even though the amount of code needed is lesser, it may cause name collisions. 
 
 ## Abstracting Code into Classes
 
@@ -31,7 +39,9 @@
 
 - How do you judge what makes a particular choice of namespace and directory
   structure? 
+  - A particular directory and namespace structure is good if a programmer is able to get an overall idea of the structure intuitively and by just reading the names. It makes it easier to debug and work on the codebase. 
 - How do you judge what makes a good naming convention or programming style?
+  - A good name should be self explanatory but not too long. A good programming style should only need minimal comments to explain a small chunk of code. 
 
 ## "Senses" in Programming
 
