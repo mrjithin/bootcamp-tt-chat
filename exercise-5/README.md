@@ -33,7 +33,9 @@
 - **Note**: You don't have to use the code in this exercise as a starting point
 - You can use the code you wrote from previous exercises instead
 - How should you divide the code into files?
+  - I divided so that a Client class is declared in `Client.h/cc` and a Server in `Server.h/cc`. A main script (`server-main.cc`, `client-main.cc`) handles initialisation, and utilities and socket handlers belong in their own utility or net-specific files. 
 - What namespace and directory structure should you use? Why?
+  - I placed it so that all network related utilities live in `src/net` and the main server and client can be run from `src/`. The network related socket handlers live in `src/net` while general utilities `utils.h` lives in `src/`. 
 
 ## Programming Sense of Taste
 
